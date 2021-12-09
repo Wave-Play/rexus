@@ -1,2 +1,3 @@
-# rexus
+# Rexus
+
 Rawr.

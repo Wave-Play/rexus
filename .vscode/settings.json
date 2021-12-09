@@ -1,0 +1,12 @@
+{
+	"editor.formatOnSave": true,
+	"search.exclude": {
+		".yarn": true,
+		"yarn.lock": true
+	},
+	"eslint.packageManager": "yarn",
+	"eslint.alwaysShowStatus": true,
+	"[markdown]": {
+		"editor.formatOnSave": true
+	}
+}
