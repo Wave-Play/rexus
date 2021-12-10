@@ -21,6 +21,9 @@
 	"release": {
 		"branches": ["main", "next"]
 	},
+	"publishConfig": {
+		"access": "public"
+	},
 	"files": [
 		"src/",
 		"dist/",
