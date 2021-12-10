@@ -1,4 +1,4 @@
-# Rexus [![GitHub license](https://img.shields.io/github/license/Wave-Play/rexus?style=flat)](https://github.com/Wave-Play/rexus/blob/main/LICENSE) [![Tests](https://github.com/Wave-Play/rexus/workflows/CI/badge.svg)](https://github.com/Wave-Play/rexus/actions)
+# Rexus [![GitHub license](https://img.shields.io/github/license/Wave-Play/rexus?style=flat)](https://github.com/Wave-Play/rexus/blob/main/LICENSE) [![Tests](https://github.com/Wave-Play/rexus/workflows/CI/badge.svg)](https://github.com/Wave-Play/rexus/actions) ![npm](https://img.shields.io/npm/v/@waveplay/rexus) [![minizipped size](https://badgen.net/bundlephobia/minzip/@waveplay/rexus)](https://bundlephobia.com/result?p=@waveplay/rexus)
 
 Rexus is Nexus' bestie.
 
