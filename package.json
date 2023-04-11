@@ -34,71 +34,28 @@
 		"README.md"
 	],
 	"scripts": {
-		"build": "tsdx build",
-		"format": "tsdx lint src --fix",
-		"lint": "tsdx lint src",
-		"prepare": "tsdx build",
-		"semantic-release": "semantic-release",
-		"start": "tsdx watch",
-		"test": "tsdx test"
+		"build": "tsup",
+		"lint": "eslint . --ext js,jsx,ts,tsx --max-warnings=0",
+		"semantic-release": "semantic-release"
 	},
 	"devDependencies": {
 		"@typescript-eslint/eslint-plugin": "5.6.0",
 		"@typescript-eslint/parser": "5.6.0",
-		"eslint-plugin-import": "2.25.4",
-		"eslint-plugin-jest": "25.3.0",
+		"eslint": "^8.38.0",
 		"nexus": "^1.1.0",
+		"prettier": "^2.8.7",
 		"semantic-release": "18.0.1",
 		"semantic-release-cli": "5.4.4",
-		"tsdx": "0.14.1",
 		"tslib": "2.3.1",
+		"tsup": "^6.7.0",
 		"typescript": "4.6.2"
 	},
 	"peerDependencies": {
 		"nexus": "^1.1.0"
 	},
-	"eslint": {
-		"env": {
-			"es6": true,
-			"jest": true,
-			"node": true
-		},
-		"parser": "@typescript-eslint/parser",
-		"parserOptions": {
-			"ecmaVersion": 2019,
-			"sourceType": "module"
-		},
-		"extends": [
-			"eslint:recommended",
-			"plugin:jest/recommended",
-			"plugin:import/recommended",
-			"plugin:@typescript-eslint/eslint-recommended",
-			"plugin:@typescript-eslint/recommended"
-		],
-		"rules": {
-			"arrow-body-style": [
-				"error",
-				"always"
-			],
-			"curly": "error",
-			"import/order": [
-				"error",
-				{
-					"newlines-between": "always"
-				}
-			]
-		},
-		"settings": {
-			"import/extensions": [
-				".ts"
-			],
-			"import/resolver": {
-				"node": {
-					"extensions": [
-						".ts"
-					]
-				}
-			}
+	"peerDependenciesMeta": {
+		"nexus": {
+			"optional": false
 		}
 	}
 }

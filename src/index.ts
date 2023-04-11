@@ -1,38 +1,38 @@
 /**
  * © 2021 WavePlay <dev@waveplay.com>
  */
-import { mutationField, queryField } from 'nexus';
+import { mutationField, queryField } from "nexus";
 
 interface RexusInitOptions {
-	context?: any
-	resolvers: any
+	context?: any;
+	resolvers: any;
 }
 
 interface RexusOperation {
-	name: string
-	resolver: Function
-	type: 'query' | 'mutation'
+	name: string;
+	resolver: Function;
+	type: "query" | "mutation";
 }
 
 /**
  * Rexus is Nexus' bestie.
- * 
+ *
  * It allows for the separation of resolver definitions vs implementations.
  * This unlocks the ability to generate schemas without building the entire project.
  * With Docker, this can be a massive improvement as it allows for layer caching & parallel builds.
- * 
+ *
  * As a bonus, it enables resolvers to call one another within the same shared context!
  * The downsides? Well, additional overhead for one. Types are also lost with Rexus... for now.
  */
 class Rexus {
 	// Linked resolvers
 	private readonly _mutations = new Map<string, any>();
-	private readonly _queries   = new Map<string, any>();
+	private readonly _queries = new Map<string, any>();
 
 	// Temporary store for extra resolver data
 	private readonly _context = new Map<number, any>();
-	private readonly _parent  = new Map<number, any>();
-	private readonly _info    = new Map<number, any>();
+	private readonly _parent = new Map<number, any>();
+	private readonly _info = new Map<number, any>();
 
 	// Registered plugins to use as context
 	private readonly _plugins: any[] = [];
@@ -46,9 +46,9 @@ class Rexus {
 			if (options.resolvers.hasOwnProperty(resolverKey)) {
 				const operation = options.resolvers[resolverKey];
 
-				if (operation.type === 'query') {
+				if (operation.type === "query") {
 					this._queries.set(operation.name, operation.resolver);
-				} else if (operation.type === 'mutation') {
+				} else if (operation.type === "mutation") {
 					this._mutations.set(operation.name, operation.resolver);
 				}
 			}
@@ -72,19 +72,19 @@ class Rexus {
 			for (let plugin of this._plugins) {
 				context = {
 					...context,
-					...await plugin(serverContext)
+					...(await plugin(serverContext)),
 				};
 			}
 
 			return context;
-		}
+		};
 	}
 
 	// Convenience function that automatically extends a Nexus mutation and links with Rexus
 	public createMutation(name: string, config: any) {
 		return mutationField(name, {
 			...config,
-			resolve: this.link()
+			resolve: this.link(),
 		});
 	}
 
@@ -92,7 +92,7 @@ class Rexus {
 	public createQuery(name: string, config: any) {
 		return queryField(name, {
 			...config,
-			resolve: this.link()
+			resolve: this.link(),
 		});
 	}
 
@@ -102,18 +102,26 @@ class Rexus {
 	}
 
 	// Assign implementation for the specified mutation resolver
-	public linkedMutation(name: string, resolver: (args: any) => any | Promise<any>): RexusOperation {
+	public linkedMutation(
+		name: string,
+		resolver: (args: any) => any | Promise<any>
+	): RexusOperation {
 		return {
-			name, resolver,
-			type: 'mutation',
+			name,
+			resolver,
+			type: "mutation",
 		};
 	}
 
 	// Assign implementation for the specified query resolver
-	public linkedQuery(name: string, resolver: (args: any) => any | Promise<any>): RexusOperation {
+	public linkedQuery(
+		name: string,
+		resolver: (args: any) => any | Promise<any>
+	): RexusOperation {
 		return {
-			name, resolver,
-			type: 'query',
+			name,
+			resolver,
+			type: "query",
 		};
 	}
 
@@ -122,10 +130,13 @@ class Rexus {
 		const rexus = this;
 
 		return async (parent: any, args: any, context: any, info: any) => {
-			const resolvers = info.operation.operation === 'mutation' ? rexus._mutations : rexus._queries;
+			const resolvers =
+				info.operation.operation === "mutation"
+					? rexus._mutations
+					: rexus._queries;
 			const resolver = resolvers.get(info.fieldName);
 
-			return this.run(function () {
+			return this.run(function (this: { id: any }) {
 				try {
 					rexus._context.set(this.id, context);
 					rexus._parent.set(this.id, parent);
@@ -143,11 +154,11 @@ class Rexus {
 
 	// Executes another resolver with the specified parameters
 	public mutate(name: string, args: any = {}, options: any = {}) {
-		const {context, info, parent} = options;
+		const { context, info, parent } = options;
 		const resolver = this._mutations.get(name);
 		const rexus = this;
 
-		return this.run(function () {
+		return this.run(function (this: { id: any }) {
 			try {
 				rexus._context.set(this.id, context);
 				rexus._parent.set(this.id, parent);
@@ -169,11 +180,11 @@ class Rexus {
 
 	// Executes another resolver with the specified parameters
 	public query(name: string, args: any = {}, options: any = {}) {
-		const {context, info, parent} = options;
+		const { context, info, parent } = options;
 		const resolver = this._queries.get(name);
 		const rexus = this;
 
-		return this.run(function () {
+		return this.run(function (this: { id: any }) {
 			try {
 				rexus._context.set(this.id, context);
 				rexus._parent.set(this.id, parent);
@@ -189,11 +200,11 @@ class Rexus {
 	}
 
 	private run(callback: any) {
-		return new Runnable(this._id++).run(function () {
+		return new Runnable(this._id++).run(function (this: { id: any }) {
 			return callback.call(this);
 		});
 	}
-};
+}
 
 class Runnable {
 	id: number = 0;
