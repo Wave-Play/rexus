@@ -4,13 +4,13 @@
 import { mutationField, queryField } from "nexus";
 
 interface RexusInitOptions {
-	context?: any;
-	resolvers: any;
+	context?: unknown;
+	resolvers: Record<string, RexusOperation>;
 }
 
 interface RexusOperation {
 	name: string;
-	resolver: Function;
+	resolver: (args: unknown) => unknown | Promise<unknown>;
 	type: "query" | "mutation";
 }
 
@@ -38,11 +38,11 @@ class Rexus {
 	private readonly _plugins: any[] = [];
 
 	// Incremental basic ID
-	private _id: number = 0;
+	private _id = 0;
 
 	// Initialize with resolver and context links
 	public init(options: RexusInitOptions) {
-		for (let resolverKey in options.resolvers) {
+		for (const resolverKey in options.resolvers) {
 			if (options.resolvers.hasOwnProperty(resolverKey)) {
 				const operation = options.resolvers[resolverKey];
 
@@ -69,7 +69,7 @@ class Rexus {
 	public createContext(): any {
 		return async (serverContext: any) => {
 			let context = {};
-			for (let plugin of this._plugins) {
+			for (const plugin of this._plugins) {
 				context = {
 					...context,
 					...(await plugin(serverContext)),
