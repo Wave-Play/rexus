@@ -1,6 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
+  '@types/node': ^18.15.11
   '@typescript-eslint/eslint-plugin': 5.6.0
   '@typescript-eslint/parser': 5.6.0
   eslint: ^8.38.0
@@ -14,6 +15,7 @@ specifiers:
   typescript: 4.6.2
 
 devDependencies:
+  '@types/node': 18.15.11
   '@typescript-eslint/eslint-plugin': 5.6.0_s2m2tv6ussidjqc37koxy5oydi
   '@typescript-eslint/parser': 5.6.0_4yliqply7khwngrwqrzkcwomam
   eslint: 8.38.0
@@ -579,15 +581,15 @@ packages:
   /@types/keyv/3.1.4:
     resolution: {integrity: sha512-BQ5aZNSCpj7D6K2ksrRCTmKRLEpnPvWDiLPfoGyhZ++8YtiK9d/3DBKPJgry359X/P1PfruyYwvnvwFjuEiEIg==}
     dependencies:
-      '@types/node': 16.11.12
+      '@types/node': 18.15.11
     dev: true
 
   /@types/minimist/1.2.2:
     resolution: {integrity: sha512-jhuKLIRrhvCPLqwPcx6INqmKeiA5EWrsCOPhrlFSrbrmU4ZMPjj5Ul/oLCMDO98XRUIwVm78xICz4EPCektzeQ==}
     dev: true
 
-  /@types/node/16.11.12:
-    resolution: {integrity: sha512-+2Iggwg7PxoO5Kyhvsq9VarmPbIelXP070HMImEpbtGCoyWNINQj4wzjbQCXzdHTRXnqufutJb5KAURZANNBAw==}
+  /@types/node/18.15.11:
+    resolution: {integrity: sha512-E5Kwq2n4SbMzQOn6wnmBjuK9ouqlURrcZDVfbo9ftDDTFt3nk7ZKK4GMOzoYgnpQJKcxwQw+lGaBvvlMo0qN/Q==}
     dev: true
 
   /@types/normalize-package-data/2.4.1:
@@ -601,7 +603,7 @@ packages:
   /@types/responselike/1.0.0:
     resolution: {integrity: sha512-85Y2BjiufFzaMIlvJDvTTB8Fxl2xfLo4HgmHzVBz08w4wDePCTjYw66PdrolO0kzli3yam/YCgRufyo1DdQVTA==}
     dependencies:
-      '@types/node': 16.11.12
+      '@types/node': 18.15.11
     dev: true
 
   /@types/retry/0.12.1:
