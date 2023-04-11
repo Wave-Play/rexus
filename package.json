@@ -50,7 +50,7 @@
 		"tslib": "2.3.1",
 		"tsup": "^6.7.0",
 		"turbo": "^1.8.8",
-		"typescript": "4.6.2"
+		"typescript": "4.9.5"
 	},
 	"peerDependencies": {
 		"nexus": "^1.1.0"
