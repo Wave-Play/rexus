@@ -27,7 +27,7 @@ jobs:
           version: 7
 
       - name: Install required Node.js version
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v4
         with:
           cache: 'pnpm'
           node-version: '${{ steps.nvm.outputs.NVMRC }}'
