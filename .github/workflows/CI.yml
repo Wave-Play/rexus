@@ -22,7 +22,7 @@ jobs:
         run: echo "##[set-output name=NVMRC;]$(cat .nvmrc)"
         id: nvm
 
-      - uses: pnpm/action-setup@v2.2.4
+      - uses: pnpm/action-setup@v2.4.1
         with:
           version: 7
 
