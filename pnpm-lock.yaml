@@ -1,7 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@types/node': ^18.15.11
+  '@types/node': ^20.0.0
   '@typescript-eslint/eslint-plugin': 5.6.0
   '@typescript-eslint/parser': 5.6.0
   eslint: ^8.38.0
@@ -15,7 +15,7 @@ specifiers:
   typescript: 4.6.2
 
 devDependencies:
-  '@types/node': 18.15.11
+  '@types/node': 20.16.10
   '@typescript-eslint/eslint-plugin': 5.6.0_s2m2tv6ussidjqc37koxy5oydi
   '@typescript-eslint/parser': 5.6.0_4yliqply7khwngrwqrzkcwomam
   eslint: 8.38.0
@@ -581,15 +581,17 @@ packages:
   /@types/keyv/3.1.4:
     resolution: {integrity: sha512-BQ5aZNSCpj7D6K2ksrRCTmKRLEpnPvWDiLPfoGyhZ++8YtiK9d/3DBKPJgry359X/P1PfruyYwvnvwFjuEiEIg==}
     dependencies:
-      '@types/node': 18.15.11
+      '@types/node': 20.16.10
     dev: true
 
   /@types/minimist/1.2.2:
     resolution: {integrity: sha512-jhuKLIRrhvCPLqwPcx6INqmKeiA5EWrsCOPhrlFSrbrmU4ZMPjj5Ul/oLCMDO98XRUIwVm78xICz4EPCektzeQ==}
     dev: true
 
-  /@types/node/18.15.11:
-    resolution: {integrity: sha512-E5Kwq2n4SbMzQOn6wnmBjuK9ouqlURrcZDVfbo9ftDDTFt3nk7ZKK4GMOzoYgnpQJKcxwQw+lGaBvvlMo0qN/Q==}
+  /@types/node/20.16.10:
+    resolution: {integrity: sha512-vQUKgWTjEIRFCvK6CyriPH3MZYiYlNy0fKiEYHWbcoWLEgs4opurGGKlebrTLqdSMIbXImH6XExNiIyNUv3WpA==}
+    dependencies:
+      undici-types: 6.19.8
     dev: true
 
   /@types/normalize-package-data/2.4.1:
@@ -603,7 +605,7 @@ packages:
   /@types/responselike/1.0.0:
     resolution: {integrity: sha512-85Y2BjiufFzaMIlvJDvTTB8Fxl2xfLo4HgmHzVBz08w4wDePCTjYw66PdrolO0kzli3yam/YCgRufyo1DdQVTA==}
     dependencies:
-      '@types/node': 18.15.11
+      '@types/node': 20.16.10
     dev: true
 
   /@types/retry/0.12.1:
@@ -5509,6 +5511,10 @@ packages:
 
   /underscore.string/2.2.1:
     resolution: {integrity: sha512-3FVmhXqelrj6gfgp3Bn6tOavJvW0dNH2T+heTD38JRxIrAbiuzbqjknszoOYj3DyFB1nWiLj208Qt2no/L4cIA==}
+    dev: true
+
+  /undici-types/6.19.8:
+    resolution: {integrity: sha512-ve2KP6f/JnbPBFyobGHuerC9g1FYGn/F8n1LWTwNxCEzd6IfqTwUQcNXgEtmmQ6DlRrC1hrSrBnCZPokRrDHjw==}
     dev: true
 
   /unique-filename/1.1.1:
